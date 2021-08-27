@@ -1,17 +1,25 @@
 class Ground {
-    constructor(x,y,width,height) {
-      var options = {
-          isStatic: true
-      }
-      this.body = Bodies.rectangle(x,y,width,height,options);
-      this.width = width;
-      this.height = height;
-      World.add(userWorld, this.body);
-    }
-    display(){
-      var pos =this.body.position;
-      rectMode(CENTER);
-      fill("brown");
-      rect(pos.x, pos.y, this.width, this.height);
-    }
-  };
+  constructor(xInput, yInput, widthInput, heightInput) {
+    //construction of ground using matter.js
+    var options = {
+      isStatic: true,
+    };
+    this.width = widthInput;
+    this.height = heightInput;
+    this.body = Bodies.rectangle(
+      xInput,
+      yInput,
+      widthInput,
+      heightInput,
+      options
+    );
+    World.add(userWorld, this.body);
+  }
+  display() {
+    //display of ground using matter.js
+    var pos = this.body.position;
+    rectMode(CENTER);
+    fill("brown");
+    rect(pos.x, pos.y, this.width, this.height);
+  }
+}
